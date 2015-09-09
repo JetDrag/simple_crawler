@@ -15,7 +15,7 @@ def singleton(cls):
 @singleton
 class LogHelper():
 
-    def __init__(self, logname, logger, level):
+    def __init__(self, log_file_name, logger, level):
         '''
            指定保存日志的文件路径，日志级别，以及调用文件
            将日志存入到指定的文件中
@@ -26,7 +26,7 @@ class LogHelper():
         self.logger.setLevel(level)
 
         # 创建一个handler，用于写入日志文件
-        fh = logging.FileHandler(logname,encoding='utf-8')
+        fh = logging.FileHandler(log_file_name,encoding='utf-8')
         fh.setLevel(level)
 
         # 再创建一个handler，用于输出到控制台
@@ -45,10 +45,12 @@ class LogHelper():
     def getlog(self):
         return self.logger
 
-def get_logger(level):
-    PYName = sys.argv[0]
-    PYName = PYName[PYName.rfind('/')+1:PYName.rfind('.')]
-    if not os.path.exists('log'):
-        os.makedirs('log')
-    logger = LogHelper(logname='log/log_'+PYName+'_'+todayDate+'.txt', logger=PYName,level = level).getlog()
+PYName = sys.argv[0]
+PYName = PYName[PYName.rfind('/')+1:PYName.rfind('.')]
+if not os.path.exists('log'):
+    os.makedirs('log')
+default_log_file_name = 'log/log_'+ PYName + '.txt'
+
+def get_logger(level = logging.debug,log_file_name = default_log_file_name, logger = PYName):
+    logger = LogHelper(log_file_name, logger,level).getlog()
     return logger

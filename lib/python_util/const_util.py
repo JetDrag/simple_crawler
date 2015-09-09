@@ -12,10 +12,3 @@ class const:
             raise self.ConstCaseError, \
                     'const name "%s" is not all uppercase' % name
         self.__dict__[name] = value
-
-
-if __name__ == '__main__':
-    class Const_specific(const):
-        pass
-    Const_specific.AB = 5
-    print Const_specific.AB
