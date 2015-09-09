@@ -3,6 +3,7 @@ __author__ = 'wangjunhao<wangjunhao@conew.com>'
 
 import sys,datetime,logging,os
 
+
 # 单例模式装饰器，确保不重复添加handler
 def singleton(cls):
     instances = {}
@@ -44,13 +45,3 @@ class LogHelper():
 
     def getlog(self):
         return self.logger
-
-PYName = sys.argv[0]
-PYName = PYName[PYName.rfind('/')+1:PYName.rfind('.')]
-if not os.path.exists('log'):
-    os.makedirs('log')
-default_log_file_name = 'log/log_'+ PYName + '.txt'
-
-def get_logger(level = logging.debug,log_file_name = default_log_file_name, logger = PYName):
-    logger = LogHelper(log_file_name, logger,level).getlog()
-    return logger

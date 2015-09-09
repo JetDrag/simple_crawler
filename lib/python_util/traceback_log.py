@@ -8,9 +8,7 @@ Created on 2011-12-7
 '''
 import sys
 import traceback
-from log_util import get_logger
 
-Logger = get_logger()
 def print_except_trace():
     info = sys.exc_info()
     logs = []
@@ -20,4 +18,4 @@ def print_except_trace():
         logs.append('  => %s' % repr(text))
         logs.append('  ** %s: %s' % info[:2])
 
-    Logger.error('\n'.join(item for item in logs))
+    return ('\n'.join(item for item in logs))
