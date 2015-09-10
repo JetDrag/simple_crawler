@@ -4,13 +4,6 @@ __author__ = 'Wang<taptube@gmail.com>'
 from bs4 import BeautifulSoup
 import urlparse
 
-from run import run_prepare
-run_prepare()
-
-from lib import fetcher
-
-url =  'http://www.python-requests.org/en/latest/'
-
 class Crawler(object):
 
     def __init__(self,response,url):
@@ -32,8 +25,3 @@ class Crawler(object):
     def original_new_resource(self):
         for item in self.soup.find_all('a'):
             print item.attrs.get('href')
-
-obj = Crawler(fetcher.Fetcher(url).response(),url)
-print obj.new_resource()
-
-
