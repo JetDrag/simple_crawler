@@ -18,7 +18,7 @@ def run_prepare():
     parse.add_argument('-d','--depth', default = 2, type = int,
                        help = 'Specify depth for your crawler.')
 
-    parse.add_argument('-t','--delay_time', default = 1, type = int,
+    parse.add_argument('-t','--delay_time', default = 0, type = int,
                        help = 'Specify delay time for your crawler.')
 
     parse.add_argument('-p','--priority', default = 1, choices = [1,2], type = int,

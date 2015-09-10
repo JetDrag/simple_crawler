@@ -6,8 +6,10 @@ from transaction_util import get_logger
 from python_util.traceback_log import print_except_trace
 import requests,time
 
+# 模块单例性，确保同一站点统一session
 s = requests.session()
 logger = get_logger()
+
 
 class Fetcher(object):
 
@@ -15,7 +17,6 @@ class Fetcher(object):
         time.sleep(delay_time)
         self.url = url
         self.headers = headers
-
 
     def response(self):
         try :

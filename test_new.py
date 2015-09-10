@@ -1,5 +1,11 @@
+# coding=utf8
+
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 import gevent.monkey
-gevent.monkey.patch_socket()
+gevent.monkey.patch_all()
 
 import gevent,time
 import urllib2
@@ -15,19 +21,18 @@ def timeit_deco(func):
 
 
 def fetch(pid):
-    r = requests.Request('http://www.baidu.com')
-    print r.
+    r = requests.get('http://www.baidu.com')
     print pid
 
 @timeit_deco
 def synchronous():
-    for i in range(1,50):
+    for i in range(1,500):
         fetch(i)
 
 @timeit_deco
 def asynchronous():
     threads = []
-    for i in range(1,50):
+    for i in range(1,500):
         threads.append(gevent.spawn(fetch, i))
     gevent.joinall(threads)
 
