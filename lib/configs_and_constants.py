@@ -11,6 +11,7 @@ class Configs(const_util.const):
 class Contants(const_util.const):
     pass
 
+
 def default_log_file():
     PYName = sys.argv[0]
     PYName = PYName[PYName.rfind('/')+1:PYName.rfind('.')]
@@ -19,13 +20,14 @@ def default_log_file():
     default_log_file_name = 'log/log_'+ PYName + '.txt'
     return default_log_file_name,PYName
 
+
 '''
  Constants常量
 '''
 
 Contants.DEFAULT_LOG_FILE_NAME, Contants.DEFAULT_LOGGER = default_log_file()
 
-# 收集自MSpider和useragentstring.com
+# 收集自useragentstring.com和开源项目
 Contants.USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36",
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.124 Safari/537.36",
