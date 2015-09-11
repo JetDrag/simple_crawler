@@ -21,6 +21,7 @@ def run_prepare():
     parse.add_argument('-t','--delay_time', default = 0, type = int,
                        help = 'Specify delay time for your crawler.')
 
+    # 1为深度优先，2为广度优先
     parse.add_argument('-p','--priority', default = 1, choices = [1,2], type = int,
                        help = 'Specify strategy for your crawler.')
 

@@ -13,6 +13,7 @@ class Crawler(object):
         self.site_url = site_url
         self.depth = Configs.DEPTH
         self.site_url_depth = len(site_url.split('/'))
+        self.key_word = Configs.KEYWORD
 
     # 过滤出<a href=>标签
     def lookup_condition(self,tag):
