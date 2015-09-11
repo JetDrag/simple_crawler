@@ -13,7 +13,6 @@ class Crawler(object):
         self.site_url = site_url
         self.depth = Configs.DEPTH
         self.site_url_depth = len(site_url.split('/'))
-        self.key_word = Configs.KEYWORD
 
     # 过滤出<a href=>标签
     def lookup_condition(self,tag):
@@ -24,7 +23,7 @@ class Crawler(object):
         new_resource_set = set()
         for item in self.soup.find_all(self.lookup_condition):
             end_url = urlparse.urljoin(self.site_url,item.attrs.get("href"))
-            if end_url.startswith(self.site_url) and end_url.split('/') - self.site_url_depth <= 3:
+            if end_url.startswith(self.site_url) and end_url.split('/') - self.site_url_depth <= self.depth + 1:
                 filtered_url = end_url.split('#')[0]
                 new_resource_set.add(filtered_url)
         return new_resource_set

@@ -25,6 +25,8 @@ class Simple_Crawler(object):
         self.limit_cnt = Configs.LIMIT
         self.now_cnt  = 0
         self.priority = Configs.PRIORITY
+        self.key_word = Configs.KEYWORD
+
 
     # 在协程中实现关键词过滤
     def single_simple_crawler(self,new_url):
@@ -34,7 +36,6 @@ class Simple_Crawler(object):
                 self.save_queue.put((response.content,new_url))
             for item in Crawler(response).new_resource():
                 self.url_queue.put(item)
-
 
     def simple_crawler_main(self):
 
@@ -56,8 +57,10 @@ class Simple_Crawler(object):
                     url_task_list = sorted(url_set.difference(exist_url_set),key = lambda x:len(x))
                 for new_url in url_task_list:
                     crawler_pool.apply_async(self.single_simple_crawler,(new_url,))
-
                 crawler_pool.join()
+
+                exist_url_set.update(url_set)
+                self.now_cnt += len(url_task_list)
 
             # 存储操作和队列维护
             save_task_lst = []
@@ -65,6 +68,8 @@ class Simple_Crawler(object):
                 save_task_lst.append(self.save_queue.get())
                 # Todo:Mysql存储
             print save_task_lst
+
+
 
 
 
