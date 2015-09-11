@@ -51,3 +51,8 @@ Contants.USER_AGENTS = [
     "Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; fr) Presto/2.9.168 Version/11.52",
 ]
 
+Contants.CLEAN_MASTER_RESOURCE_IP = '119.147.146.216'
+Contants.CLEAN_MASTER_RESOURCE_PORT = 3307
+Contants.CLEAN_MASTER_RESOURCE_DB = 'cleanmaster_resource'
+Contants.CLEAN_MASTER_RESOURCE_USER = 'cm_db_reader'
+Contants.CLEAN_MASTER_RESOURCE_PASS = 'kj$fdks23%)3jendais?>d8ais1(&s)'

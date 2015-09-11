@@ -7,7 +7,7 @@ import urlparse
 from run import run_prepare
 run_prepare()
 
-from lib import fetcher
+from lib import spider
 
 url =  'http://www.python-requests.org/en/latest/'
 
@@ -33,7 +33,7 @@ class Crawler(object):
         for item in self.soup.find_all('a'):
             print item.attrs.get('href')
 
-obj = Crawler(fetcher.Fetcher(url).response(),url)
+obj = Crawler(spider.Spider(url).response(),url)
 print obj.new_resource()
 
 

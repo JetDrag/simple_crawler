@@ -11,7 +11,7 @@ s = requests.session()
 logger = get_logger()
 
 
-class Fetcher(object):
+class Spider(object):
 
     def __init__(self,url,headers = Configs.HEADERS,delay_time = Configs.DELAY_TIME):
         time.sleep(delay_time)
@@ -28,6 +28,6 @@ class Fetcher(object):
                 else:
                     logger.warn('Fetcher Fail. The status code is %s' % r.status_code)
                 n += 1
-            return ''
+            return None
         except:
             logger.error(print_except_trace())
