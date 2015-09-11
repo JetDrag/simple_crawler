@@ -28,6 +28,6 @@ class Fetcher(object):
                 else:
                     logger.warn('Fetcher Fail. The status code is %s' % r.status_code)
                 n += 1
-            return ''
+            return None
         except:
             logger.error(print_except_trace())
