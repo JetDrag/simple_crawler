@@ -62,6 +62,7 @@ def run_prepare():
     Configs.LOGLEVEL = args.loglevel
     Configs.BENCHMARK = args.benchmark
 
+
     # 参数获取完毕
     logger = transaction_util.get_logger()
     logger.info('Gotten arguments. Crawling %s.'% Configs.URL)

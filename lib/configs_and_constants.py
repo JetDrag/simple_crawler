@@ -58,8 +58,8 @@ Contants.IGNORE_EXT = set(['cab', 'ico', 'swf', 'rar', 'zip', 'tar', 'gz', '7z',
 
 
 # 服务器参数
-Contants.CACHE_IP = '10.10.13.47'
+Contants.CACHE_IP = 'localhost'
 Contants.CACHE_PORT = 3308
-Contants.CACHE_DB = 'cm_cache'
-Contants.CACHE_USER = 'infoc_cm'
-Contants.CACHE_PASS = 'VudCeevVawCo'
+Contants.CACHE_DB = 'example'
+Contants.CACHE_USER = 'example'
+Contants.CACHE_PASS = 'example'

@@ -46,7 +46,7 @@ class Simple_Crawler(object):
 
         # 将初始任务扔到队列里，新建协程池
         self.url_queue.put(Configs.URL)
-        crawler_pool = pool.Pool(100)
+        crawler_pool = pool.Pool(50)
         save_pool = pool.Pool(10)
         exist_url_set = set()
 

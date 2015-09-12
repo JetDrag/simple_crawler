@@ -105,7 +105,7 @@ class MySqlHelper():
         except Exception, ex:
             tip_str = '[Exec sql exception] %s' % str(ex)
             print tip_str
-            logger.info('\n'.join([tip_str,sql,repr(params)]))
+            logger.info('\n'.join([tip_str,sql,repr(params[0])]))
             if commit:
                 self.db.rollback()
         return ret, cds

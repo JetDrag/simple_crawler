@@ -1,10 +1,9 @@
 # coding=utf8
 __author__ = 'Wang<taptube@gmail.com>'
 
-from bs4 import BeautifulSoup
-import urlparse
+import requests,traceback
 
-from run import run_prepare
-run_prepare()
-
-
+try:
+    i = requests.get('http://www.121888.com',timeout =0.001)
+except:
+    print traceback.print_exc()
