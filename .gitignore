@@ -13,8 +13,6 @@ develop-eggs/
 dist/
 downloads/
 eggs/
-lib/
-lib64/
 parts/
 sdist/
 var/
@@ -99,3 +97,10 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Custom Files/Folder
+*.txt
+test.py
+test2.py
+test_new.py
+/try
