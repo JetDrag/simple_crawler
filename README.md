@@ -10,6 +10,7 @@ simple_clawler是一个基于gevent协程网络框架的异步爬虫，配置适
  - 基于gevent实现的全面异步IO，包括异步网页抓取和数据库入库。
  - 使用requests模块访问站点，单例模式确保同一个网站同一个连接池。
  - 模块化，全模块线程安全日志覆盖。
+
 #### 计划实现:
  1. 基于浏览器内核的动态爬取。
  2. 优化数据存储队列的响应方式。支持更多的存储方法。
@@ -37,10 +38,10 @@ simple_clawler是一个基于gevent协程网络框架的异步爬虫，配置适
 
 ## 使用方法
     
-    首先，需要到lib/configs_and_contants.py，将MySQL服务器常量修改成你自己的服务器。然后：
+	首先，需要到lib/configs_and_contants.py，将MySQL服务器常量修改成你自己的服务器。然后：
+	
     example:
     run.py http://www.wooyun.org/ -d 3 -t 0.01 -p 2 -l 10000 -ll 10
-    
     
     usage: run.py [-h] [-hd HEADERS] [-d DEPTH] [-t DELAY_TIME] [-p {1,2}]
               [-l LIMIT] [-k KEYWORD] [-lf LOGFILE] [-ll {0,10,20,30,40,50}]
