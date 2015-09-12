@@ -98,6 +98,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# Log/Txt Files
+# Custom Files/Folder
 *.txt
-*.log
+test.py
+test2.py
+test_new.py
+/try

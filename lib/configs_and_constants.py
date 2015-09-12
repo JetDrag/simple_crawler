@@ -27,8 +27,9 @@ def default_log_file():
 
 Contants.DEFAULT_LOG_FILE_NAME, Contants.DEFAULT_LOGGER = default_log_file()
 
+
 # 收集自useragentstring.com和开源项目
-Contants.USER_AGENTS = [
+Contants.USER_AGENTS = (
     "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36",
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.124 Safari/537.36",
     "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; AcooBrowser; .NET CLR 1.1.4322; .NET CLR 2.0.50727)",
@@ -49,10 +50,16 @@ Contants.USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11",
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/535.20 (KHTML, like Gecko) Chrome/19.0.1036.7 Safari/535.20",
     "Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; fr) Presto/2.9.168 Version/11.52",
-]
+)
 
-Contants.CLEAN_MASTER_RESOURCE_IP = '119.147.146.216'
-Contants.CLEAN_MASTER_RESOURCE_PORT = 3307
-Contants.CLEAN_MASTER_RESOURCE_DB = 'cleanmaster_resource'
-Contants.CLEAN_MASTER_RESOURCE_USER = 'cm_db_reader'
-Contants.CLEAN_MASTER_RESOURCE_PASS = 'kj$fdks23%)3jendais?>d8ais1(&s)'
+# 不期待后缀名
+Contants.IGNORE_EXT = set(['cab', 'ico', 'swf', 'rar', 'zip', 'tar', 'gz', '7z', 'bz2', 'iso', 'nrg', 'uif', 'exe', 'rpm', 'deb', 'dmg', 'jar', 'jad', 'bin', 'apk', 'run', 'msi', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf', 'doc', 'docx', 'odf',
+              'txt', 'rtf', 'odt', 'mkv', 'avi', 'mp4', 'flv', 'WebM', 'mov', 'wmv', '3gp', 'mpg', 'mpeg', 'mp3', 'wav', 'ogg', 'mp4a', 'wma', 'png', 'jpeg', 'jpg', 'xpm', 'gif', 'tiff', 'js', 'css', 'bmp', 'svg', 'exif', 'thmx', 'xml'])
+
+
+# 服务器参数
+Contants.CACHE_IP = '10.10.13.47'
+Contants.CACHE_PORT = 3308
+Contants.CACHE_DB = 'cm_cache'
+Contants.CACHE_USER = 'infoc_cm'
+Contants.CACHE_PASS = 'VudCeevVawCo'

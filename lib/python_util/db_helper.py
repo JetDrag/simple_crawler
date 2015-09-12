@@ -1,8 +1,44 @@
 #-*- coding:utf8 -*-
 __author__ = 'Wang'
 
-import MySQLdb,sqlite3,sys
-import traceback_log
+import pymysql as MySQLdb
+# import MySQLdb
+import sqlite3,sys
+import traceback_log,log_util_adv
+
+# TODO:将统一get_logger移至下层或log_util中，方便底层工具调用
+def get_logger():
+    logger = log_util_adv.LogHelperForDBConnect('log/' + __name__ ,__name__,10).getlog()
+    return logger
+logger = get_logger()
+
+class SQLiteHelper(object):
+    def __init__(self,db,):
+        self.db = db
+        self.conn = None
+
+    def connect(self):
+        self.conn = sqlite3.connect(self.db)
+
+    def execute_sql(self, sql, params, many = False, script = False):
+        if not self.conn:
+            self.connect()
+
+        ret = 0
+        try:
+            with self.conn:
+                if many:
+                    ret = self.conn.executemany(sql,params)
+                elif script:
+                    ret = self.conn.executescript(sql)
+                else:
+                    ret = self.conn.execute(sql,params)
+        except:
+            print sys.exc_info()[0],sys.exc_info()[1]
+            print sql
+
+        return ret
+
 
 class MySqlHelper():
     def __init__(self, ip, port, db, usr, psw):
@@ -22,7 +58,7 @@ class MySqlHelper():
                                         charset='utf8')
             ret = 1
         except:
-            traceback_log.print_except_trace()
+            print traceback_log.print_except_trace()
         return ret
 
     def CloseDB(self):
@@ -54,7 +90,7 @@ class MySqlHelper():
                     self.Connect()
                     self.db = self.db
             except Exception:
-                traceback_log.print_except_trace()
+                print traceback_log.print_except_trace()
         try:
             cursor = self.db.cursor()
             if many:
@@ -67,36 +103,9 @@ class MySqlHelper():
                 cds = cursor.fetchall()
             cursor.close()
         except Exception, ex:
-            print '[Exec sql exception] %s' % str(ex)
-            print sql
-            print params
+            tip_str = '[Exec sql exception] %s' % str(ex)
+            print tip_str
+            logger.info('\n'.join([tip_str,sql,repr(params)]))
             if commit:
                 self.db.rollback()
         return ret, cds
-
-class SQLiteHelper(object):
-    def __init__(self,db,):
-        self.db = db
-        self.conn = None
-
-    def connect(self):
-        self.conn = sqlite3.connect(self.db)
-
-    def execute_sql(self, sql, params, many = False, script = False):
-        if not self.conn:
-            self.connect()
-
-        ret = 0
-        try:
-            with self.conn:
-                if many:
-                    ret = self.conn.executemany(sql,params)
-                elif script:
-                    ret = self.conn.executescript(sql)
-                else:
-                    ret = self.conn.execute(sql,params)
-        except:
-            print sys.exc_info()[0],sys.exc_info()[1]
-            print sql
-
-        return ret

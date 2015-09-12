@@ -1,13 +1,16 @@
 # coding=utf8
 __author__ = 'Wang<taptube@gmail.com>'
 
-class a():
+import gevent
 
-    def __init__(self):
-        self.info = 0
+def print_info():
+    gevent.sleep(5)
+    print a
 
-    @ property
-    def ab(self):
-        return 0
+a = ['2','3']
+l = [gevent.spawn(print_info)]
 
-print a.ab
+a = ['3','4']
+l.append(gevent.spawn(print_info))
+
+gevent.joinall(l)
