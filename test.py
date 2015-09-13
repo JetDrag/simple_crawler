@@ -1,9 +1,20 @@
 # coding=utf8
 __author__ = 'Wang<taptube@gmail.com>'
 
-import requests,traceback
+import gevent.monkey
+gevent.monkey.patch_all(subprocess=True,sys= True)
 
-try:
-    i = requests.get('http://www.121888.com',timeout =0.001)
-except:
-    print traceback.print_exc()
+import gevent
+from gevent import pool
+
+def test(a):
+    gevent.sleep(2)
+    print a
+
+test_pool = pool.Pool(50)
+
+a_list = [1,2,3,4,5,6,7,8,9,10]
+
+[test_pool.apply_async(test,(a,)) for a in a_list]
+
+test_pool.join()
