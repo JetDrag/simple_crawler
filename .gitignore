@@ -103,5 +103,4 @@ $RECYCLE.BIN/
 test.py
 test2.py
 test_new.py
-/try
-/.idea
+.idea/
