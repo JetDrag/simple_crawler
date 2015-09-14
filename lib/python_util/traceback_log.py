@@ -1,9 +1,6 @@
 #!C:\Python27\python.exe
 #-*- coding:utf-8 -*-
 '''
-Created on 2011-12-7
-
-@author: ZouYipeng <ZouYipeng@Kingsoft.com>
 @auther: modified by wangjunhao<wangjunhao@conew.com>
 '''
 import sys
