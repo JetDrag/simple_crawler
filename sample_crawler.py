@@ -34,7 +34,7 @@ class Simple_Crawler(object):
         if response:
             if not self.benchmark:
                 if not self.key_word or (self.key_word and self.key_word in new_url):
-                    self.save_queue.put((base64.urlsafe_b64encode(response.content),base64.urlsafe_b64encode(new_url)))
+                    self.save_queue.put(tuple(base64.urlsafe_b64encode(item) for item in (response.content,new_url)))
             for item in Crawler(response).new_resource():
                 self.url_queue.put(item)
 

@@ -69,5 +69,6 @@ def run_prepare():
 
 if __name__ == '__main__':
     run_prepare()
+    # Simple_Crawler中import的模块需要的参数需要run_prepare初始化
     from sample_crawler import Simple_Crawler
     Simple_Crawler().simple_crawler_main()
