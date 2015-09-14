@@ -103,8 +103,6 @@ $RECYCLE.BIN/
 test.py
 test2.py
 test_new.py
-<<<<<<< HEAD
 try/
-=======
->>>>>>> master
 .idea/
+*.db_helper
