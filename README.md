@@ -1,5 +1,5 @@
 # 关于simple_clawler
-simple_clawler是一个基于gevent协程网络框架的异步爬虫，配置适当的并发连接数和时间间隔后，可以轻松占满你的带宽。
+simple_clawler是一个基于gevent协程框架的异步爬虫，配置适当的并发连接数和时间间隔后，可以轻松占满你的带宽。
 
 -----
 
